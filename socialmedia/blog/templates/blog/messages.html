@@ -1,0 +1,6 @@
+{% extends "blog/index.html" %}
+{% block content %}
+	{% for message in messages %}
+		<p>By {{ message.sender }}: {{ message.message }}</p>
+	{% endfor %}
+{% endblock content %}

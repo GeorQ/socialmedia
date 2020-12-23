@@ -2,17 +2,41 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
+
+messages = [
+
+	{
+		'sender' : 'Ahmed',
+		'message': 'you are bitch',	
+	},
+
+	{
+		'sender' : 'Giorgii',
+		'message': 'no you are bitch',	
+	},
+
+]
+
+context = {
+	'messages' : messages
+}
+
 def home(request):
-    return render(request, 'blog/index.html', {'option': 1})
+	context['option'] = 1
+	return render(request, 'blog/index.html', context)
 
 def messages(request):
-    return render(request, 'blog/index.html', {'option': 2})
+	context['option'] = 2
+	return render(request, 'blog/messages.html', context)
 
 def friends(request):
-    return render(request, 'blog/index.html', {'option': 3})
+	context['option'] = 3
+	return render(request, 'blog/index.html', context)
 
 def groups(request):
-    return render(request, 'blog/index.html', {'option': 4})
+	context['option'] = 4
+	return render(request, 'blog/index.html', context)
 
 def settings(request):
-    return render(request, 'blog/index.html', {'option': 5})
+	context['option'] = 5
+	return render(request, 'blog/index.html', context)
