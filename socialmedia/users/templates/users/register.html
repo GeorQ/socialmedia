@@ -1,25 +1,25 @@
 {% extends "blog/index.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <div class = "container">
-    	<div class="border border-dark p-3 m-3 col-10">
+	<div class="content-section">
+        <div class="border border-dark p-3 m-3">
             <form method="post">
                 {% csrf_token %}
-
-                {% for field in form %}
-                    <div class="fieldWrapper form-group">
-
-                        <small class="text-warning">{{ field.errors }}</small>
-                        <span>{{ field.label_tag }}</span>
-                        <span class="form-control">{{ field }}</span>
-                        
-                        {% if field.help_text %}
-                        <p class="help form-text">{{ field.help_text|safe }}</p>
-                        {% endif %}
-                        
-                    </div>
-                {% endfor %}
-                <button type="submit" class="btn btn-primary">Register</button>
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Join Today</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <div class="input-group flex-fill">
+                        <button class="btn btn-outline-info" type="submit">Register</button>
+                    </div>                
+                </div>
             </form>
+            <div class="border-top pt-3">
+                <small class = "text-muted">
+                    Already have an Account? <a class ="ml-2" href="#">Sign In</a>
+                </small>
+            </div>
         </div>
     </div>
 {% endblock content %}
