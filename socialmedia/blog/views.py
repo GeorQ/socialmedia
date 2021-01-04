@@ -7,23 +7,23 @@ messages = [
 
 	{
 		'sender' : 'Ahmed',
-		'message': 'you are bitch',	
+		'message': 'Hello Giorgii, how are u doing?',	
 	},
 
 	{
 		'sender' : 'Giorgii',
-		'message': 'no you are bitch',	
+		'message': 'Hi, bro, I am fine, what about u?',	
 	},
 
 ]
 
 context = {
-	'messages' : messages
+	'messagesUser' : messages
 }
 
 def home(request):
 	context['option'] = 1
-	return render(request, 'blog/index.html', context)
+	return render(request, 'blog/home.html', context)
 
 def messages(request):
 	context['option'] = 2
